@@ -8,24 +8,30 @@ config = {
     "storageBucket": "virtual-tourist-guide-3b35c.appspot.com",
 }
 
-firebase = pyrebase.initialize_app(config)  # firebase connection for configuration
-auth = firebase.auth()  # instance created
-db = firebase.database()  # instance for database is created
+"""firebase connection for configuration"""
+firebase = pyrebase.initialize_app(config)
+"""instance created"""
+auth = firebase.auth()
+"""instance for database is created"""
+db = firebase.database()
 
 
 class Authentication:
 
     @staticmethod
-    def create_user_accnt(email, password):  # method created for registration of user
-        auth.create_user_with_email_and_password(email, password)  # method is called for registration
+    # method created for registration of user
+    def create_user_accnt(email, password):
+        # method is called for registration
+        auth.create_user_with_email_and_password(email, password)
 
     @staticmethod
-    def login_user_accnt(email, password):  # method created for login of user
-        auth.sign_in_with_email_and_password(email, password)  # method is called for sign in
+    # method created for login of user
+    def login_user_accnt(email, password):
+        # method is called for sign in
+        auth.sign_in_with_email_and_password(email, password)
 
-    def check_for_password_length(self,password):
+    def check_for_password_length(self, password):
         if len(password) >= 8:
             return True
         else:
             return False
-
